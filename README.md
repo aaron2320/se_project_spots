@@ -1,4 +1,4 @@
-# Project 3: Spots Aaron
+# Project 3: Spots
 
 ### Overview
 
