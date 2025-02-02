@@ -1,4 +1,4 @@
-# Project 3: Spots
+# Project 3: Spots Aaron Brown
 
 ### Overview
 
