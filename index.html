@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="web application that showcases a user profile along with a photo gallery"
+    />
+    <meta name="author" content="Texan Tonjee" />
+    <meta
+      name="keywords"
+      content="Spots is an application where user can view
+    photos with descriptions, and they can interact with the like buttons for
+    each phone"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="pages/index.css" />
+    <title>Spots</title>
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <img src="./images/Logo.svg" alt="header logo" class="header__logo" />
+      </header>
+      <main class="content">
+        <section class="profile page__section">
+          <img
+            src="./images/avatar.jpg"
+            alt="profile picture"
+            class="profile__avatar"
+          />
+          <div class="profile__column">
+            <h1 class="profile__name">Bessie Coleman</h1>
+            <p class="profile__description">Civil Aviator</p>
+            <button type="button" class="profile__edit-button">
+              <img
+                src="./images/Edit.svg"
+                alt="pencil icon"
+                class="profile__edit-icon"
+              />Edit Profile
+            </button>
+          </div>
+          <button type="button" class="profile__add-button-description">
+            <img
+              src="./images/Plusbutton.svg"
+              alt="plus icon"
+              class="profile__add-button"
+            />New Post
+          </button>
+        </section>
+        <section class="photo__gallery">
+          <div class="photo__card">
+            <img
+              src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
+              alt="photo of Val Thorens"
+              class="photo__card-image"
+            />
+            <div class="photo__info">
+              <p class="photo__description">Val Thorens</p>
+              <button type="button" class="like__button"></button>
+            </div>
+          </div>
+          <div class="photo__card">
+            <img
+              src="./images/2-photo-by-ceiline-from-pexels.jpg"
+              alt="photo of Restaurant terrace"
+              class="photo__card-image"
+            />
+            <div class="photo__info">
+              <p class="photo__description">Restaurant terrace</p>
+              <button type="button" class="like__button"></button>
+            </div>
+          </div>
+          <div class="photo__card">
+            <img
+              src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg"
+              alt="photo of an outdoor cafe"
+              class="photo__card-image"
+            />
+            <div class="photo__info">
+              <p class="photo__description">An outdoor cafe</p>
+              <button type="button" class="like__button"></button>
+            </div>
+          </div>
+          <div class="photo__card">
+            <img
+              src="./images/4-photo-by-maurice-laschet-from-pexels.jpg"
+              alt="photo a very long bridge over the forest"
+              class="photo__card-image"
+            />
+            <div class="photo__info">
+              <p class="photo__description">
+                A very long bridge, over the forest...
+              </p>
+              <button type="button" class="like__button"></button>
+            </div>
+          </div>
+          <div class="photo__card">
+            <img
+              src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
+              alt="photo of a tunnel with morning light"
+              class="photo__card-image"
+            />
+            <div class="photo__info">
+              <p class="photo__description">Tunnel with morning light</p>
+              <button type="button" class="like__button"></button>
+            </div>
+          </div>
+          <div class="photo__card">
+            <img
+              src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg"
+              alt="photo of a mountain house"
+              class="photo__card-image"
+            />
+            <div class="photo__info">
+              <p class="photo__description">Mountain house</p>
+              <button type="button" class="like__button"></button>
+            </div>
+          </div>
+        </section>
+      </main>
+      <footer class="footer__copyright">2025 © Spots</footer>
+    </div>
+  </body>
+</html>
