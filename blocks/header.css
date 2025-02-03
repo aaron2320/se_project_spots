@@ -11,20 +11,3 @@
   height: 26px;
   padding: 10px 0;
 }
-
-@media screen and (max-width: 927px) {
-  .header {
-    padding: 0;
-    position: fixed;
-    left: 0;
-    right: 0;
-  }
-}
-
-@media screen and (max-width: 627px) {
-  .header {
-    padding: 0;
-    width: 320px;
-    height: 46px;
-  }
-}
