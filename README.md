@@ -33,7 +33,7 @@ Clone the repository to your local machine:
 
 ## File Structure
 
-##SE_PROJECT_SPOTS
+## SE_PROJECT_SPOTS
 
 ### blocks
 
