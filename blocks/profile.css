@@ -30,6 +30,12 @@
   margin: 138px 0 0 auto;
 }
 
+.profile__add-button-description:hover {
+  background-color: #383838; /* Slightly lighter shade of your dark background */
+  cursor: pointer;
+  transform: scale(1.02); /* Slight grow effect */
+}
+
 .profile__add-button {
   width: 12px;
   height: 12px;
@@ -83,6 +89,12 @@
   gap: 8px;
   margin-top: auto;
   padding: 0;
+}
+
+.profile__edit-button:hover {
+  color: rgba(33, 33, 33, 1); /* Full opacity on hover */
+  cursor: pointer;
+  transform: translateY(-2px); /* Slight upward movement */
 }
 
 @media screen and (max-width: 627px) {
