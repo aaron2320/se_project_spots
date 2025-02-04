@@ -31,9 +31,9 @@
 }
 
 .profile__add-button-description:hover {
-  background-color: #383838; /* Slightly lighter shade of your dark background */
+  background-color: #383838;
   cursor: pointer;
-  transform: scale(1.02); /* Slight grow effect */
+  transform: scale(1.02);
 }
 
 .profile__add-button {
@@ -92,9 +92,9 @@
 }
 
 .profile__edit-button:hover {
-  color: rgba(33, 33, 33, 1); /* Full opacity on hover */
+  color: rgba(33, 33, 33, 1);
   cursor: pointer;
-  transform: translateY(-2px); /* Slight upward movement */
+  transform: translateY(-2px);
 }
 
 @media screen and (max-width: 627px) {
