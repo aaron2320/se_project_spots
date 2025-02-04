@@ -34,11 +34,12 @@ Clone the repository to your local machine:
 ## File Structure
 
 /SE_PROJECT_SPOTS
+
 /blocks
 
 //vendor
 
-# content.css
+## content.css
 
 # footer.css
 
