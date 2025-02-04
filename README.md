@@ -33,10 +33,10 @@ Clone the repository to your local machine:
 
 ## File Structure
 
-V SE_PROJECT_SPOTS
-blocks
+/SE_PROJECT_SPOTS
+/blocks
 
-> vendor
+//vendor
 
 # content.css
 
