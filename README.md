@@ -37,21 +37,21 @@ Clone the repository to your local machine:
 
 # blocks
 
-##vendor
+## vendor
 
 ### content.css
 
-# footer.css
+### footer.css
 
-# header.css
+### header.css
 
-# page.css
+### page.css
 
-# photo-card.css
+### photo-card.css
 
-# photo-gallery.css
+### photo-gallery.css
 
-# profile.css
+### profile.css
 
 v images
 1-photo-by-moritz-feldmann-from-pexels.jpg # Gallery photo (Val Thorens)
