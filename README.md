@@ -27,3 +27,7 @@ Clone the repository to your local machine:
 - git clone git@github.com:aaron2320/se_project_spots.git
 
 ## Video recorded
+
+161mb download size media player
+
+https://drive.google.com/file/d/1jFTEqdISCCvbqkCECoD3lAhgpPD0YtU3/view?usp=drive_link
