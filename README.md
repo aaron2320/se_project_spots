@@ -12,14 +12,14 @@ Spots web page shows a user profile and a photo gallery. Users can view photos w
 
 ## Project Overview
 
-This web page was made so it can be viewed and be responsive. This allows it to be displayed correctly on popular screen sizes. The web page has a profile section and a gallery of images below it. The profile page includes the person's name, profession and buttons to edit the profile and add new posts. The gallery has images of diferent places with a descriptions and like buttons.
+This web page was made so it can be viewed and be responsive. This allows it to be displayed correctly on popular screen sizes. The web page has a profile section and a gallery of images below it. The profile page includes the person's name, profession and buttons to edit the profile and add new posts. The gallery has images of different places with descriptions and like buttons.
 
 ## Features
 
-User Profile: Has a profile picture, name, and description with edit.
-Photo Gallery: Setup in a grid of photos with descriptions and like buttons.
-Responsive Layout: It is designed to work well on both desktop and mobile devices using CSS media queries for different screen sizes.
-Buttons: Gives you options to edit the profile and add new posts.
+- User Profile: Has a profile picture, name, and description with edit.
+- Photo Gallery: Setup in a grid of photos with descriptions and like buttons.
+- Responsive Layout: It is designed to work well on both desktop and mobile devices using CSS media queries for different screen sizes.
+- Buttons: Gives you options to edit the profile and add new posts.
 
 ## Technologies
 
