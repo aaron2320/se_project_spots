@@ -1,6 +1,6 @@
 # se_project_spots
 
-Spots web page shows a user profile and a photo gallery. Users can view photos with descriptions, and they can respond with "like" buttons for each photo. The web page also includes functionality to edit the user's profile and add new posts.
+Spots web page shows a user profile and a photo gallery. Users can view photos with descriptions, and they can respond with "like" buttons for each photo. The web page also includes functionality to edit the user's profile and add new posts. I have posted my site on github: https://aaron2320.github.io/se_project_spots/
 
 # Table of Contents
 
