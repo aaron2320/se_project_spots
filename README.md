@@ -33,58 +33,77 @@ Clone the repository to your local machine:
 
 ## File Structure
 
-/SE_PROJECT_SPOTS
+##SE_PROJECT_SPOTS
 
-# blocks
+### blocks
 
-## vendor
+#### vendor
 
-### content.css
+#### content.css
 
-### footer.css
+#### footer.css
 
-### header.css
+#### header.css
 
-### page.css
+#### page.css
 
-### photo-card.css
+#### photo-card.css
 
-### photo-gallery.css
+#### photo-gallery.css
 
-### profile.css
+#### profile.css
 
-v images
-1-photo-by-moritz-feldmann-from-pexels.jpg # Gallery photo (Val Thorens)
-2-photo-by-ceiline-from-pexels.jpg # Gallery photo (Restaurant terrace)
-F 3-photo-by-tubanur-dogan-from-pexels.jpg # Gallery photo (An outdoor cafe)
-F4-photo-by-maurice-laschet-from-pexels.jpg # Gallery photo (A very long bridge over forest)
-5-photo-by-van-anh-nguyen-from-pexels.jpg # Gallery photo (Tunnel with morning light)
-6-photo-by-moritz-feldmann-from-pexels.jpg # Gallery photo (Mountain house)
-avatar.jpg
-Edit.svg
-Like Icon.svg
-Logo.svg
-Plusbutton.svg
-Poppins
-A Poppins-Medium.ttf
-Poppins-Reqular.ttf
-v pages
+### images
 
-# index.css
+#### 1-photo-by-moritz-feldmann-from-pexels.jpg # Gallery photo (Val Thorens)
 
-v vendor
+#### 2-photo-by-ceiline-from-pexels.jpg # Gallery photo (Restaurant terrace)
 
-# font.css
+#### 3-photo-by-tubanur-dogan-from-pexels.jpg # Gallery photo (An outdoor cafe)
 
-# normalize.css
+#### 4-photo-by-maurice-laschet-from-pexels.jpg # Gallery photo (A very long bridge over forest)
 
-.editorconfig
-.gitignore
-.prettierignore
+#### 5-photo-by-van-anh-nguyen-from-pexels.jpg # Gallery photo (Tunnel with morning light)
 
-- favicon.ico
-  <> index.html # Main HTML file
-  README.md # Explaining Website Design
+#### 6-photo-by-moritz-feldmann-from-pexels.jpg # Gallery photo (Mountain house)
+
+#### avatar.jpg
+
+#### Edit.svg
+
+#### Like Icon.svg
+
+#### Logo.svg
+
+#### Plusbutton.svg
+
+#### Poppins
+
+##### Poppins-Medium.ttf
+
+##### Poppins-Reqular.ttf
+
+### pages
+
+#### index.css
+
+### vendor
+
+#### font.css
+
+#### normalize.css
+
+### .editorconfig
+
+### .gitignore
+
+### .prettierignore
+
+### favicon.ico
+
+### index.html # Main HTML file
+
+### README.md # Explaining Website Design
 
 ## Video recorded
 
