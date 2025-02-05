@@ -51,6 +51,8 @@ Clone the repository to your local machine:
 
 #### photo-gallery.css
 
+#### photo.css
+
 #### profile.css
 
 ### images
