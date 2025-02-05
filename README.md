@@ -111,7 +111,7 @@ Clone the repository to your local machine:
 
 161mb download size media player
 
-https://drive.google.com/file/d/1jFTEqdISCCvbqkCECoD3lAhgpPD0YtU3/view?usp=drive_link
+https://drive.google.com/file/d/1jFTEqdISCCvbqkCECoD3lAhgpPD0YtU3/view?usp=sharing
 
 This is posted above but here it is again.
 I have posted my site on github: https://aaron2320.github.io/se_project_spots/
