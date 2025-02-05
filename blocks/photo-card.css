@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-.photo__card-image {
+.photo__image {
   width: 413px;
   height: 413px;
   border-radius: 7px;
@@ -25,7 +25,7 @@
   color: rgb(33, 33, 33);
 }
 
-.like__button {
+.photo__like-button {
   background-image: url(../images/Like\ Icon.svg);
   background-color: transparent;
   background-size: cover;

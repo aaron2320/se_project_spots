@@ -16,7 +16,7 @@
   justify-content: space-between;
 }
 
-.profile__add-button-description {
+.profile__add-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -31,13 +31,13 @@
   margin: 138px 0 0 auto;
 }
 
-.profile__add-button-description:hover {
+.profile__add-button:hover {
   background-color: #383838;
   cursor: pointer;
   transform: scale(1.02);
 }
 
-.profile__add-button {
+.profile__add-button-icon {
   width: 12px;
   height: 12px;
   color: rgba(252, 245, 229, 1);
@@ -135,7 +135,7 @@
     border-radius: 90px;
   }
 
-  .profile__add-button-description {
+  .profile__add-button {
     width: 288px;
     height: 52px;
     margin: 0 0 20px;
