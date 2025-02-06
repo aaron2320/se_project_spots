@@ -9,6 +9,58 @@
   border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
 }
 
+.photo__card {
+  margin: 0;
+  padding: 0;
+}
+
+.photo__image {
+  width: 413px;
+  height: 413px;
+  border-radius: 8px; /* Correct the border-radius */
+  object-fit: cover; /* Fix with object-fit */
+}
+
+.photo__info {
+  display: flex;
+  justify-content: space-between;
+  padding: 0;
+  margin: 0;
+}
+
+.photo__description {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
+  margin: 12px 0 0;
+  color: rgb(33, 33, 33);
+  /* Fix overflow */
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 100%; /* Adjust max-width based on parent container */
+}
+
+.photo__like-button {
+  background-image: url(../images/Like\ Icon.svg);
+  background-color: transparent;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  margin-top: 12px;
+  padding: 0;
+  height: 20px;
+  width: 23px;
+  cursor: pointer; /* Fix for pointer cursor */
+}
+
+.photo__like-button:hover {
+  /* Add hover effect (e.g., change opacity, scale, etc.) */
+  opacity: 0.8;
+}
+
 @media screen and (max-width: 627px) {
   .photo {
     grid-template-columns: repeat(auto-fit, 288px);
