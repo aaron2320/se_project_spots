@@ -23,8 +23,8 @@
 .photo__image {
   width: 413px;
   height: 413px;
-  border-radius: 8px; /* Correct the border-radius */
-  object-fit: cover; /* Fix with object-fit */
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 .photo__info {
@@ -45,7 +45,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 100%; /* Adjust max-width based on parent container */
+  max-width: 100%;
 }
 
 .photo__like-button {
@@ -59,12 +59,13 @@
   padding: 0;
   height: 20px;
   width: 23px;
-  cursor: pointer; /* Fix for pointer cursor */
+  cursor: pointer;
+  opacity: 0.4;
 }
 
 .photo__like-button:hover {
-  /* Add hover effect (e.g., change opacity, scale, etc.) */
-  opacity: 0.8;
+  opacity: 1;
+  transition: opacity 0.2s ease;
 }
 
 @media screen and (max-width: 627px) {
