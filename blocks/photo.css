@@ -9,6 +9,12 @@
   border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
 }
 
+.photo__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 .photo__card {
   margin: 0;
   padding: 0;
