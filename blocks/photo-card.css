@@ -1,3 +1,6 @@
+.photo {
+}
+
 .photo__card {
   margin: 0;
   padding: 0;
@@ -6,7 +9,8 @@
 .photo__image {
   width: 413px;
   height: 413px;
-  border-radius: 7px;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 .photo__info {
@@ -23,6 +27,10 @@
   line-height: 1;
   margin: 12px 0 0;
   color: rgb(33, 33, 33);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 350px;
 }
 
 .photo__like-button {
@@ -36,4 +44,10 @@
   padding: 0;
   height: 20px;
   width: 23px;
+  cursor: pointer;
+}
+
+.photo__like-button:hover {
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
 }
