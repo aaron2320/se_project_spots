@@ -30,7 +30,7 @@
   border: none;
   border-radius: 8px;
   margin: 138px 0 0 auto;
-  width: 200px;
+  width: 157px;
   height: 50px;
 }
 
@@ -108,7 +108,7 @@
     flex-direction: column;
     max-width: 288px;
     align-items: center;
-    padding-top: 0;
+    padding-top: 20px;
   }
   .profile__avatar {
     width: 80px;

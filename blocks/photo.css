@@ -41,11 +41,10 @@
   line-height: 1;
   margin: 12px 0 0;
   color: rgb(33, 33, 33);
-  /* Fix overflow */
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 100%;
+  max-width: 350px;
 }
 
 .photo__like-button {
@@ -71,7 +70,10 @@
 @media screen and (max-width: 627px) {
   .photo {
     grid-template-columns: repeat(auto-fit, 288px);
+    row-gap: 20px;
+    padding-bottom: 20px;
   }
+
   .photo__image {
     width: 288px;
     height: 288px;
@@ -84,5 +86,11 @@
   .photo__description {
     font-size: 16px;
     line-height: 16px;
+    max-width: 250px;
+  }
+
+  .photo__like-button {
+    width: 20px;
+    height: 18px;
   }
 }
