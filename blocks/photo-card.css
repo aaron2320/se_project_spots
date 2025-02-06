@@ -42,9 +42,10 @@
   height: 20px;
   width: 23px;
   cursor: pointer;
+  opacity: 0.4;
 }
 
 .photo__like-button:hover {
-  opacity: 0.6;
+  opacity: 1;
   transition: opacity 0.2s ease;
 }
