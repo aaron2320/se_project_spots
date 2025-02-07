@@ -48,7 +48,7 @@
 }
 
 .photo__like-button {
-  background-image: url(../images/Like\ Icon.svg);
+  background-image: url(../images/like-icon-dark.svg);
   background-color: transparent;
   background-size: cover;
   background-repeat: no-repeat;
