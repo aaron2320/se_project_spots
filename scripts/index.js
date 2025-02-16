@@ -27,7 +27,7 @@ const initialCards = [
 
 const profileEditButton = document.querySelector(".profile__edit-button");
 const profileName = document.querySelector(".profile__name");
-const descriptionName = document.querySelector(".profile__description");
+const profileDescription = document.querySelector(".profile__description");
 
 const editModal = document.querySelector("#edit-modal");
 
@@ -39,7 +39,7 @@ const editModalDescriptionInput = editModal.querySelector(
 
 function openModal() {
   editModalNameInput.value = profileName.textContent;
-  editModalDescriptionInput.value = descriptionName.textContent;
+  editModalDescriptionInput.value = profileDescription.textContent;
   editModal.classList.add("modal_opened");
 }
 
