@@ -49,75 +49,22 @@
             />&nbsp;New Post
           </button>
         </section>
-        <section class="photo">
-          <div class="photo__card">
-            <img
-              src="./images/1-photo-by-moritz-feldmann-from-pexels.jpg"
-              alt="photo of Val Thorens"
-              class="photo__image"
-            />
-            <div class="photo__info">
-              <h2 class="photo__description">Val Thorens</h2>
-              <button type="button" class="photo__like-button"></button>
-            </div>
-          </div>
-          <div class="photo__card">
-            <img
-              src="./images/2-photo-by-ceiline-from-pexels.jpg"
-              alt="photo of Restaurant terrace"
-              class="photo__image"
-            />
-            <div class="photo__info">
-              <p class="photo__description">Restaurant terrace</p>
-              <button type="button" class="photo__like-button"></button>
-            </div>
-          </div>
-          <div class="photo__card">
-            <img
-              src="./images/3-photo-by-tubanur-dogan-from-pexels.jpg"
-              alt="photo of an outdoor cafe"
-              class="photo__image"
-            />
-            <div class="photo__info">
-              <p class="photo__description">An outdoor cafe</p>
-              <button type="button" class="photo__like-button"></button>
-            </div>
-          </div>
-          <div class="photo__card">
-            <img
-              src="./images/4-photo-by-maurice-laschet-from-pexels.jpg"
-              alt="photo a very long bridge over the forest"
-              class="photo__image"
-            />
-            <div class="photo__info">
-              <p class="photo__description">
-                A very long bridge, over the forest...
-              </p>
-              <button type="button" class="photo__like-button"></button>
-            </div>
-          </div>
-          <div class="photo__card">
-            <img
-              src="./images/5-photo-by-van-anh-nguyen-from-pexels.jpg"
-              alt="photo of a tunnel with morning light"
-              class="photo__image"
-            />
-            <div class="photo__info">
-              <p class="photo__description">Tunnel with morning light</p>
-              <button type="button" class="photo__like-button"></button>
-            </div>
-          </div>
-          <div class="photo__card">
-            <img
-              src="./images/6-photo-by-moritz-feldmann-from-pexels.jpg"
-              alt="photo of a mountain house"
-              class="photo__image"
-            />
-            <div class="photo__info">
-              <p class="photo__description">Mountain house</p>
-              <button type="button" class="photo__like-button"></button>
-            </div>
-          </div>
+
+        <section class="cards page__section">
+          <ul class="cards__list">
+            <template id="card-template">
+              <li class="card">
+                <img class="card__image" src="" alt="" />
+                <div class="card__footer">
+                  <h2 class="card__title"></h2>
+                  <button
+                    aria-label="Like card"
+                    class="card__like-button"
+                  ></button>
+                </div>
+              </li>
+            </template>
+          </ul>
         </section>
       </main>
       <footer class="footer">
