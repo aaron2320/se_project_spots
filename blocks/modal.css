@@ -66,6 +66,7 @@
 
 .modal__input {
   padding: 16px 12px;
+  border-radius: 8px;
 }
 
 .modal__submit-btn {
@@ -114,4 +115,19 @@
   .modal__submit-btn {
     width: 100%;
   }
-}
+
+  @media screen and (max-width: 320px) {
+    .card__title {
+      font-size: 14px; /* Adjust the title size to prevent cropping */
+      line-height: 16px; /* Adjust line height for better spacing */
+    }
+
+    .card__footer {
+      gap: 16px; /* Increase the gap between the title and like button */
+    }
+
+    .card__like-button {
+      width: 18px; /* Resize the like button to fit */
+      height: 18px; /* Adjust height to match */
+    }
+  }
