@@ -30,6 +30,7 @@ const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 
 const editModal = document.querySelector("#edit-modal");
+
 const editFormElement = editModal.querySelector(".modal__form");
 
 const editModalCloseBtn = editModal.querySelector(".modal__close-btn");
@@ -52,6 +53,7 @@ function getCardElement(data) {
 
   cardNameEl.textContent = data.name;
   cardImageEl.src = data.link;
+  cardImageEl.alt = data.name;
 
   return cardElement;
 }
