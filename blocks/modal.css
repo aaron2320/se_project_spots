@@ -116,7 +116,7 @@
     width: 100%;
   }
 
-  @media screen and (max-width: 320px) {
+  @media screen and (max-width: 627px) {
     .card__title {
       font-size: 14px; /* Adjust the title size to prevent cropping */
       line-height: 16px; /* Adjust line height for better spacing */

@@ -173,4 +173,9 @@
     font-size: 16px;
     line-height: 16px;
   }
+
+  .card__like-button {
+    width: 18px; /* Resize the like button to fit */
+    height: 18px; /* Adjust height to match */
+  }
 }
