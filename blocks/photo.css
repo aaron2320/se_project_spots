@@ -131,7 +131,7 @@
   transition: opacity 0.2s ease;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 627px) {
   .photo {
     grid-template-columns: repeat(auto-fit, 288px);
     row-gap: 20px;
