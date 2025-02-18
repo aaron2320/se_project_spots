@@ -120,6 +120,7 @@
     .card__title {
       font-size: 14px; /* Adjust the title size to prevent cropping */
       line-height: 16px; /* Adjust line height for better spacing */
+      max-width: 235px;
     }
 
     .card__footer {
