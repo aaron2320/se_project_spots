@@ -131,6 +131,23 @@
   transition: opacity 0.2s ease;
 }
 
+.card__like-button_liked {
+  background-image: url("../images/like-icon-liked.svg") !important;
+  background-size: cover !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  opacity: 1 !important;
+  width: 23px !important;
+  height: 20px !important;
+  display: inline-block !important; /* Force the button to display */
+  visibility: visible !important; /* Force the button to be visible */
+}
+
+.card__like-button_liked:hover {
+  background-image: url("../images/like-icon-liked-hover.svg");
+  opacity: 1;
+}
+
 @media screen and (max-width: 627px) {
   .photo {
     grid-template-columns: repeat(auto-fit, 288px);
