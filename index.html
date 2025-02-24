@@ -53,7 +53,7 @@
           <ul class="cards__list">
             <template id="card-template">
               <li class="card">
-                <img class="card__image" src="" alt="" />
+                <img class="card__image" src="" alt="Card image" />
                 <div class="card__footer">
                   <h2 class="card__title"></h2>
                   <button
@@ -92,6 +92,37 @@
                 type="text"
                 class="modal__input"
                 placeholder="Describe yourself"
+              />
+            </label>
+            <button type="submit" class="modal__submit-btn">Save</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="modal" id="add-card-modal">
+        <div class="modal__container">
+          <button type="button" class="modal__close-btn">
+            <img src="./images/Close-Icon.svg" alt="close icon" />
+          </button>
+          <h2 class="modal__title">New Post</h2>
+          <form name="link" class="modal__form">
+            <label for="add-card-link-input" class="modal__label">
+              Image link
+              <input
+                id="add-card-link-input"
+                class="modal__input"
+                placeholder="Paste a link to the picture"
+                type="url"
+              />
+            </label>
+            <label for="add-card-name-input" class="modal__label">
+              Caption
+              <input
+                id="add-card-name-input"
+                class="modal__input"
+                name="name"
+                placeholder="Type your caption"
+                type="text"
               />
             </label>
             <button type="submit" class="modal__submit-btn">Save</button>
