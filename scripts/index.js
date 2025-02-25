@@ -23,15 +23,20 @@ const initialCards = [
     name: "Mountain house",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
   },
+  {
+    name: "San Francisco",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg", // Add the new image link
+  },
 ];
 
 const profileEditButton = document.querySelector(".profile__edit-button");
-const cardModalBtn = document.querySelector(".profile__add-button"); // Fixed selector
+const cardModalBtn = document.querySelector(".profile__add-button");
 const profileName = document.querySelector(".profile__name");
 const profileDescription = document.querySelector(".profile__description");
 
 const editModal = document.querySelector("#edit-modal");
-const cardModal = document.querySelector("#add-card-modal"); // Fixed selector
+const cardModal = document.querySelector("#add-card-modal");
+const previewModal = document.querySelector("#preview-modal");
 
 const editFormElement = editModal.querySelector(".modal__form");
 
@@ -41,7 +46,10 @@ const editModalDescriptionInput = editModal.querySelector(
   "#profile-description-input"
 );
 
-const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn"); // Fixed selector
+const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
+const previewModalCloseButton = previewModal.querySelector(
+  ".modal__close-button_type_preview"
+);
 
 const cardForm = cardModal.querySelector(".modal__form");
 const cardNameInput = cardModal.querySelector("#add-card-name-input");
@@ -49,6 +57,9 @@ const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
+
+const previewModalImage = previewModal.querySelector(".modal__image");
+const previewModalCaption = previewModal.querySelector(".modal__caption");
 
 function getCardElement(data) {
   const cardElement = cardTemplate.content
@@ -72,15 +83,27 @@ function getCardElement(data) {
     cardLikeButton.classList.toggle("card__like-button_liked");
   });
 
+  cardImageEl.addEventListener("click", () => {
+    previewModalImage.src = data.link;
+    previewModalImage.alt = data.name;
+    previewModalCaption.textContent = data.name;
+    openModal(previewModal);
+  });
+
   return cardElement;
 }
 
 function openModal(modal) {
-  modal.classList.add("modal_opened"); // Use the passed modal parameter
+  modal.classList.add("modal_opened");
 }
 
 function closeModal(modal) {
-  modal.classList.remove("modal_opened"); // Use the passed modal parameter
+  modal.style.transition = "opacity 0.3s ease-in-out";
+  modal.style.opacity = "0";
+  setTimeout(() => {
+    modal.classList.remove("modal_opened");
+    modal.style.opacity = "";
+  }, 300);
 }
 
 function handleEditFormSubmit(evt) {
@@ -119,6 +142,10 @@ cardModalBtn.addEventListener("click", () => {
 
 cardModalCloseBtn.addEventListener("click", () => {
   closeModal(cardModal);
+});
+
+previewModalCloseButton.addEventListener("click", () => {
+  closeModal(previewModal);
 });
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
