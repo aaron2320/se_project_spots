@@ -10,8 +10,7 @@
     <meta
       name="keywords"
       content="Spots is an application where user can view
-    photos with descriptions, and they can interact with the like buttons for
-    each phone"
+    photos with descriptions, and they can interact with the like buttons and is responsive for cell phone"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="favicon.ico" />
@@ -33,7 +32,7 @@
           <div class="profile__column">
             <h1 class="profile__name">Bessie Coleman</h1>
             <p class="profile__description">Civil Aviator</p>
-            <button type="button" class="profile__edit-button">
+            <button type="button" class="profile__edit-btn">
               <img
                 src="./images/Edit.svg"
                 alt="pencil icon"
@@ -41,7 +40,7 @@
               />Edit Profile
             </button>
           </div>
-          <button type="button" class="profile__add-button">
+          <button type="button" class="profile__add-btn">
             <img
               src="./images/Plusbutton.svg"
               alt="plus icon"
@@ -54,14 +53,12 @@
             <template id="card-template">
               <li class="card">
                 <img class="card__image" src="" alt="Card image" />
-
-                <button class="card__delete-button"></button>
-
+                <button class="card__delete-btn"></button>
                 <div class="card__footer">
                   <h2 class="card__title"></h2>
                   <button
                     aria-label="Like card"
-                    class="card__like-button"
+                    class="card__like-btn"
                   ></button>
                 </div>
               </li>
@@ -72,7 +69,6 @@
       <footer class="footer">
         <p class="footer__copyright">2025 © Spots</p>
       </footer>
-
       <div class="modal" id="edit-modal">
         <div class="modal__container">
           <button type="button" class="modal__close-btn">
@@ -102,7 +98,6 @@
           </form>
         </div>
       </div>
-
       <div class="modal" id="add-card-modal">
         <div class="modal__container">
           <button type="button" class="modal__close-btn">
@@ -133,13 +128,9 @@
           </form>
         </div>
       </div>
-
       <div class="modal" id="preview-modal">
-        <div class="modal__container modal__content_type_preview">
-          <button
-            type="button"
-            class="modal__close-button modal__close-button_type_preview"
-          >
+        <div class="modal__container modal__container_type_preview">
+          <button type="button" class="modal__close-btn">
             <img src="./images/Close-Icon.svg" alt="close icon" />
           </button>
           <img class="modal__image" src="" alt="Preview image" />
@@ -147,7 +138,6 @@
         </div>
       </div>
     </div>
-
     <script defer src="./scripts/index.js"></script>
   </body>
 </html>

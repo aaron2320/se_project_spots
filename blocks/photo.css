@@ -47,7 +47,7 @@
   max-width: 350px;
 }
 
-.photo__like-button {
+.photo__like-btn {
   background-image: url(../images/like-icon-dark.svg);
   background-color: transparent;
   background-size: cover;
@@ -62,7 +62,7 @@
   opacity: 0.4;
 }
 
-.photo__like-button:hover {
+.photo__like-btn:hover {
   opacity: 1;
   transition: opacity 0.2s ease;
 }
@@ -112,7 +112,7 @@
   max-width: 350px;
 }
 
-.card__like-button {
+.card__like-btn {
   background-image: url(../images/like-icon-dark.svg);
   background-color: transparent;
   background-size: cover;
@@ -127,12 +127,12 @@
   opacity: 0.4;
 }
 
-.card__like-button:hover {
+.card__like-btn:hover {
   opacity: 1;
   transition: opacity 0.2s ease;
 }
 
-.card__like-button_liked {
+.card__like-btn_liked {
   background-image: url("../images/like-icon-liked.svg") !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
@@ -140,16 +140,16 @@
   opacity: 1 !important;
   width: 23px !important;
   height: 20px !important;
-  display: inline-block !important; /* Force the button to display */
-  visibility: visible !important; /* Force the button to be visible */
+  display: inline-block !important;
+  visibility: visible !important;
 }
 
-.card__like-button_liked:hover {
+.card__like-btn_liked:hover {
   background-image: url("../images/like-icon-liked-hover.svg");
   opacity: 1;
 }
 
-.card__delete-button {
+.card__delete-btn {
   position: absolute;
   top: 10px;
   right: 10px;
@@ -165,7 +165,7 @@
   z-index: 1;
 }
 
-.card__delete-button:hover {
+.card__delete-btn:hover {
   background-image: url(../images/delete-icon-hover.svg);
 }
 
@@ -191,7 +191,7 @@
     max-width: 250px;
   }
 
-  .photo__like-button {
+  .photo__like-btn {
     width: 20px;
     height: 18px;
   }
@@ -212,8 +212,8 @@
     line-height: 16px;
   }
 
-  .card__like-button {
-    width: 18px; /* Resize the like button to fit */
-    height: 18px; /* Adjust height to match */
+  .card__like-btn {
+    width: 18px;
+    height: 18px;
   }
 }

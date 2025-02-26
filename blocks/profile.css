@@ -17,7 +17,7 @@
   justify-content: space-between;
 }
 
-.profile__add-button {
+.profile__add-btn {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -34,12 +34,12 @@
   height: 50px;
 }
 
-.profile__add-button:hover {
+.profile__add-btn:hover {
   opacity: 0.8;
   cursor: pointer;
 }
 
-.profile__add-button-icon {
+.profile__add-btn-icon {
   width: 12px;
   height: 12px;
   color: rgba(252, 245, 229, 1);
@@ -79,7 +79,7 @@
   max-width: 420px;
 }
 
-.profile__edit-button {
+.profile__edit-btn {
   display: flex;
   justify-content: left;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
@@ -95,7 +95,7 @@
   opacity: 0.7;
 }
 
-.profile__edit-button:hover {
+.profile__edit-btn:hover {
   opacity: 1;
   cursor: pointer;
 }
@@ -127,11 +127,11 @@
     max-width: 288px;
     margin: auto;
   }
-  .profile__edit-button {
+  .profile__edit-btn {
     margin: 32px auto 20px;
     border-radius: 90px;
   }
-  .profile__add-button {
+  .profile__add-btn {
     width: 288px;
     height: 52px;
     margin: 0 0 20px;
