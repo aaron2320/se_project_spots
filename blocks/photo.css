@@ -76,7 +76,7 @@
   margin: auto;
   padding: 20px 0 34px;
   border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
-  list-style: none; /* Remove default list styling */
+  list-style: none;
 }
 
 .card {
@@ -133,19 +133,21 @@
 }
 
 .card__like-btn_liked {
-  background-image: url("../images/like-icon-liked.svg") !important;
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  background-position: center !important;
-  opacity: 1 !important;
-  width: 23px !important;
-  height: 20px !important;
-  display: inline-block !important;
-  visibility: visible !important;
+  background-image: url("../images/like-icon-liked.svg");
+  background-color: transparent; /* Explicitly remove any background */
+  background-size: contain; /* Use contain instead of cover for cleaner scaling */
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 1;
+  width: 23px;
+  height: 20px;
+  display: inline-block;
+  visibility: visible;
 }
 
 .card__like-btn_liked:hover {
   background-image: url("../images/like-icon-liked-hover.svg");
+  background-color: transparent; /* Ensure hover state is also transparent */
   opacity: 1;
 }
 
@@ -213,7 +215,18 @@
   }
 
   .card__like-btn {
-    width: 18px;
-    height: 18px;
+    width: 23px; /* Slightly smaller but proportional */
+    height: 20px; /* Matches Figma mobile design */
+    background-size: contain; /* Prevents cropping */
+  }
+
+  .card__like-btn_liked {
+    width: 23px;
+    height: 20px;
+    background-size: contain; /* Ensures full heart visibility */
+  }
+
+  .card__footer {
+    overflow: visible; /* Prevent cropping by parent */
   }
 }
