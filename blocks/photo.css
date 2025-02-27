@@ -97,6 +97,7 @@
   justify-content: space-between;
   padding: 0;
   margin: 0;
+  align-items: center; /* Vertically align title and button */
 }
 
 .card__title {
@@ -104,7 +105,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 1;
-  margin: 12px 0 0;
+  margin: 12px 0 0 0;
   color: rgb(33, 33, 33);
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -115,16 +116,17 @@
 .card__like-btn {
   background-image: url(../images/like-icon-dark.svg);
   background-color: transparent;
-  background-size: cover;
+  background-size: contain; /* Use contain for better scaling */
   background-repeat: no-repeat;
   background-position: center;
   border: none;
-  margin-top: 12px;
+  margin-top: 12px 0 0 16px;
   padding: 0;
   height: 20px;
   width: 23px;
   cursor: pointer;
   opacity: 0.4;
+  flex-shrink: 0; /* Prevent button from shrinking */
 }
 
 .card__like-btn:hover {
@@ -212,9 +214,12 @@
   .card__title {
     font-size: 16px;
     line-height: 16px;
+    max-width: 230px; /* Reduce max-width on mobile to leave space for the button */
+    margin: 12px 0 0 0;
   }
 
   .card__like-btn {
+    margin: 12px 0 0 12px; /* Slightly less margin on mobile, but enough spacing */
     width: 23px; /* Slightly smaller but proportional */
     height: 20px; /* Matches Figma mobile design */
     background-size: contain; /* Prevents cropping */
@@ -227,6 +232,7 @@
   }
 
   .card__footer {
+    align-items: center; /* Ensure alignment on mobile */
     overflow: visible; /* Prevent cropping by parent */
   }
 }
