@@ -1,19 +1,23 @@
 .modal {
-  display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
+  display: flex; /* Add this back to enable flex centering */
   align-items: center;
   justify-content: center;
-  transition: visibility 0.3s opacity 0.3 ease-in-out;
+  opacity: 0; /* Start fully transparent */
+  visibility: hidden; /* Hidden by default */
+  transition: opacity 0.3s ease-in-out, visibility 0s 0.3s; /* Transition opacity, delay visibility */
   z-index: 1000;
 }
 
 .modal.modal_opened {
-  display: flex;
+  opacity: 1; /* Fully opaque when opened */
+  visibility: visible; /* Visible when opened */
+  transition: opacity 0.3s ease-in-out, visibility 0s 0s; /* No delay on visibility when opening */
 }
 
 .modal__container {
@@ -23,6 +27,14 @@
   padding: 32px;
   max-width: 600px;
   width: 100%;
+  transform: scale(0.9); /* Start slightly scaled down */
+  opacity: 0; /* Start transparent */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth scale and fade */
+}
+
+.modal.modal_opened .modal__container {
+  transform: scale(1); /* Full size when opened */
+  opacity: 1; /* Fully opaque when opened */
 }
 
 .modal__close-btn {
@@ -51,6 +63,9 @@
   background-color: transparent;
   position: relative;
   border-radius: 10px;
+  transform: scale(0.9); /* Start scaled down */
+  opacity: 0; /* Start transparent */
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
 }
 
 .modal__image {
