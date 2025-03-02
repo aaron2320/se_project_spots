@@ -1,23 +1,22 @@
+/* Default (Desktop) Modal Styles */
 .modal {
+  padding: 0;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  display: flex; /* Add this back to enable flex centering */
+  display: none;
   align-items: center;
   justify-content: center;
-  opacity: 0; /* Start fully transparent */
-  visibility: hidden; /* Hidden by default */
-  transition: opacity 0.3s ease-in-out, visibility 0s 0.3s; /* Transition opacity, delay visibility */
   z-index: 1000;
+  transition: opacity 0.3s ease-in-out;
 }
 
-.modal.modal_opened {
-  opacity: 1; /* Fully opaque when opened */
-  visibility: visible; /* Visible when opened */
-  transition: opacity 0.3s ease-in-out, visibility 0s 0s; /* No delay on visibility when opening */
+.modal_opened {
+  display: flex;
+  opacity: 1;
 }
 
 .modal__container {
@@ -27,14 +26,46 @@
   padding: 32px;
   max-width: 600px;
   width: 100%;
-  transform: scale(0.9); /* Start slightly scaled down */
-  opacity: 0; /* Start transparent */
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth scale and fade */
+  transform: scale(0.9);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-.modal.modal_opened .modal__container {
-  transform: scale(1); /* Full size when opened */
-  opacity: 1; /* Fully opaque when opened */
+.modal__title {
+  font-size: 24px; /* Match Figma */
+  margin-bottom: 32px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+}
+
+.modal__label {
+  color: rgba(33, 33, 33, 0.7);
+}
+
+.modal__input {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  border-radius: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(33, 33, 33, 0.4);
+  font-size: 20px;
+  line-height: 1;
+  padding: 16px 12px 16px;
+  margin: 8px 0 32px;
+  color: #212121;
+}
+
+.modal__submit-btn {
+  width: 25%;
+  height: 48px;
+  font-size: 16px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .modal__close-btn {
@@ -49,11 +80,22 @@
   cursor: pointer;
 }
 
-/* Base modal styles (unchanged) */
+.modal__close_type_preview {
+  background-image: url(../images/close-icon-white.svg);
+  top: 0;
+  right: -52.5px;
+  opacity: 1;
+}
+
+.modal__close:hover {
+  opacity: 1;
+}
+
+/* Preview Modal Container */
 .modal__container_type_preview {
   padding: 0;
-  max-width: 80vw;
-  max-height: 80vh;
+  max-width: 80vw; /* Cap container width to match 800px Figma */
+  max-height: 80vh; /* Keep height constraint */
   height: auto;
   width: auto;
   display: flex;
@@ -63,17 +105,22 @@
   background-color: transparent;
   position: relative;
   border-radius: 10px;
-  transform: scale(0.9); /* Start scaled down */
-  opacity: 0; /* Start transparent */
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Smooth transition */
+  transform: scale(0.9);
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.modal_opened .modal__container {
+  transform: scale(1);
+  opacity: 1;
 }
 
 .modal__image {
-  width: 100%;
-  max-width: 80vw;
-  max-height: 80vh;
+  width: 100%; /* Fill container width */
+  max-width: 700px; /* Cap image width to match Figma */
+  max-height: 500px; /* Cap image height */
   border-radius: 10px;
-  object-fit: contain;
+  object-fit: contain; /* Maintain aspect ratio */
 }
 
 .modal__caption {
@@ -85,77 +132,66 @@
   font-weight: 500;
 }
 
-.modal__container_type_preview .modal__close-btn {
-  position: absolute;
-  top: -38px;
-  right: -44px;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  border: none;
-  background: none;
-  cursor: pointer;
-  transition: opacity 0.3s ease;
-}
-
-.modal__close_type_preview {
-  position: absolute;
-  top: -32px;
-  right: -32px;
-  height: 40px;
-  width: 40px;
-  background-image: url("../images/close-icon-white.svg") !important;
-  background-size: contain;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  opacity: 0.8;
-  z-index: 1100;
-}
-
-.modal__close-btn:hover {
-  opacity: 0.6;
-}
-
-.modal__close-btn img {
-  width: 100%;
-  height: 100%;
-}
-
-.modal__label {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 32px;
-  font-size: 16px;
-  font-weight: 500;
-  font-family: "Poppins", Arial, Helvetica, sans-serif; /* Add this */
-  color: #333;
-}
-
-/* Mobile adjustments for 320px */
+/* Mobile Adjustments */
 @media screen and (max-width: 627px) {
   .modal__container_type_preview {
-    max-width: 288px; /* Matches card width */
+    max-width: 288px; /* Matches Figma mobile */
   }
 
   .modal__image {
-    width: 288px;
-    height: 288px;
-    max-width: none;
-    max-height: none;
+    width: 288px; /* Fixed size for mobile */
+    height: 288px; /* Fixed size for mobile */
+    max-width: none; /* Override desktop max-width */
+    max-height: none; /* Override desktop max-height */
     border-radius: 8px;
   }
+}
 
-  .modal__caption {
-    margin-top: 12px;
-    font-size: 16px;
+/* Mobile Adjustments */
+@media screen and (max-width: 627px) {
+  .modal__container {
+    max-width: 288px;
+    padding: 16px;
   }
 
-  .modal__container_type_preview .modal__close-btn {
+  .modal__title {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+
+  .modal__label {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .modal__input {
+    height: 40px;
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .modal__submit-btn {
+    height: 40px;
+    font-size: 14px;
+  }
+
+  .modal__close-btn {
     width: 30px;
     height: 30px;
     top: 10px;
     right: 10px;
+  }
+}
+
+.modal__container_type_preview {
+  padding: 0;
+  max-width: 80vw;
+  max-height: 80vh;
+  background-color: transparent;
+}
+
+@media screen and (max-width: 627px) {
+  .modal__container_type_preview {
+    max-width: 288px;
   }
 }
