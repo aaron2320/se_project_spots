@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  transition: visibility 0.3s, opacity 0.3s ease-in;
+  transition: visibility 0.3s, opacity 0.3s ease-in-out;
 }
 
 .modal_opened {
@@ -128,6 +128,7 @@
 .modal__caption {
   max-width: 300px;
   white-space: nowrap;
+  overflow: hidden;
   text-overflow: ellipsis;
   margin-top: 16px;
   font-size: 20px;
