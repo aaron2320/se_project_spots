@@ -11,7 +11,7 @@
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  transition: opacity 0.3s ease-in-out;
+  transition: visibility 0.3s, opacity 0.3s ease-in;
 }
 
 .modal_opened {
@@ -56,7 +56,7 @@
 }
 
 .modal__submit-btn {
-  width: 25%;
+  width: 156px;
   height: 48px;
   font-size: 16px;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
@@ -82,8 +82,10 @@
 
 .modal__close_type_preview {
   background-image: url(../images/close-icon-white.svg);
-  top: 0;
-  right: -52.5px;
+  top: unset;
+  bottom: calc(100% + 5px);
+  right: unset;
+  left: calc(100% + 5px);
   opacity: 1;
 }
 
@@ -117,19 +119,28 @@
 
 .modal__image {
   width: 100%; /* Fill container width */
-  max-width: 700px; /* Cap image width to match Figma */
-  max-height: 500px; /* Cap image height */
-  border-radius: 10px;
+  max-width: 80vw; /* Cap container width to match 800px Figma */
+  max-height: 80vh; /* Keep height constraint */
+  border-radius: 8px;
   object-fit: contain; /* Maintain aspect ratio */
 }
 
 .modal__caption {
+  max-width: 300px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   margin-top: 16px;
   font-size: 20px;
   color: #fff;
   text-align: center;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   font-weight: 500;
+  background-color: #000;
+}
+
+.modal__close-btn_preview {
+  left: calc(100% + 5px);
+  bottom: calc(100% + 5px);
 }
 
 /* Mobile Adjustments */
@@ -143,7 +154,7 @@
     height: 288px; /* Fixed size for mobile */
     max-width: none; /* Override desktop max-width */
     max-height: none; /* Override desktop max-height */
-    border-radius: 8px;
+    border-radius: 4px;
   }
 }
 
@@ -176,18 +187,11 @@
   }
 
   .modal__close-btn {
-    width: 30px;
-    height: 30px;
-    top: 10px;
-    right: 10px;
+    width: 40px;
+    height: 40px;
+    top: 41px;
+    left: 264px;
   }
-}
-
-.modal__container_type_preview {
-  padding: 0;
-  max-width: 80vw;
-  max-height: 80vh;
-  background-color: transparent;
 }
 
 @media screen and (max-width: 627px) {
