@@ -1,5 +1,6 @@
 /* Default (Desktop) Modal Styles */
 .modal {
+  display: flex;
   padding: 0;
   position: fixed;
   top: 0;
@@ -7,15 +8,16 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  display: none;
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  transition: visibility 0.3s, opacity 0.3s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.3s ease-in;
 }
 
 .modal_opened {
-  display: flex;
+  visibility: visible;
   opacity: 1;
 }
 
