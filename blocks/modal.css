@@ -141,6 +141,7 @@
   .modal__container {
     max-width: 288px;
     padding: 16px;
+    margin: 0 16px; /* Add horizontal margin to match Figma */
   }
 
   .modal__title {
@@ -192,11 +193,20 @@
   cursor: pointer;
 }
 
-/* Image Preview Modal (Mobile, 320px) */
+/* Specific Adjustments for 320px (Form Modals Only) */
 @media screen and (max-width: 320px) {
+  .modal__container {
+    max-width: 288px;
+    width: calc(100% - 32px); /* 100% minus 16px margin on each side */
+    margin: 0 16px; /* Ensure consistent margin at 320px */
+    padding: 16px;
+  }
+
+  /* Ensure preview modal isn’t affected */
   .modal__container_type_preview {
     max-width: 288px; /* Matches card width */
-    width: 288px;
+    width: 288px; /* Fixed width per Figma */
+    margin: 0; /* No margin for preview modal */
     padding: 0;
   }
 
