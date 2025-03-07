@@ -83,7 +83,7 @@
   cursor: pointer;
 }
 
-/* Preview Modal Container */
+/* Preview Modal Container (Desktop) */
 .modal__container_type_preview {
   padding: 0;
   max-width: 800px; /* Matches Figma desktop preview */
@@ -183,8 +183,8 @@
 
 .modal__close_type_preview {
   position: absolute;
-  top: -40px; /* Outside top-right per desktop Figma */
-  right: 0;
+  top: -5px; /* Outside top-right per desktop Figma */
+  right: -45;
   width: 40px;
   height: 40px;
   background: url(../images/close-icon-white.svg) no-repeat center;
