@@ -42,6 +42,8 @@
 
 .modal__label {
   color: rgba(33, 33, 33, 0.7);
+  margin-bottom: 32px;
+  display: block;
 }
 
 .modal__input {
@@ -53,8 +55,21 @@
   font-size: 20px;
   line-height: 1;
   padding: 16px 12px;
-  margin: 8px 0 32px;
+  margin: 8px 0 0;
   color: #212121;
+}
+
+.modal__error {
+  display: block;
+  margin-top: 8px;
+  color: #ff0000;
+  font-size: 14px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+.modal__input_type_error {
+  border: 1px solid rgba(255, 0, 0, 0.6);
 }
 
 .modal__submit-btn {
@@ -81,6 +96,12 @@
   background: url(../images/close-icon.svg) no-repeat center;
   background-size: contain;
   cursor: pointer;
+}
+
+.modal__button_disabled {
+  background-color: #ccc; /* Grey color */
+  cursor: not-allowed; /* Indicate it’s not clickable */
+  opacity: 0.7; /* Slightly faded for disabled look */
 }
 
 /* Preview Modal Container (Desktop) */

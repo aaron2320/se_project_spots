@@ -50,8 +50,8 @@ const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 
 const cardForm = cardModal.querySelector(".modal__form");
-const cardNameInput = cardModal.querySelector("#add-card-name-input");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
+const cardCaptionInput = cardModal.querySelector("#card-caption-input");
 
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
@@ -108,10 +108,17 @@ function handleEditFormSubmit(evt) {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
+
   const inputValues = {
-    name: cardNameInput.value,
+    name: cardCaptionInput.value,
     link: cardLinkInput.value,
   };
+
+  if (!inputValues.name || !inputValues.link) {
+    alert("Please fill out both the image link and caption fields.");
+    return;
+  }
+
   const cardEl = getCardElement(inputValues);
   cardsList.prepend(cardEl);
 
@@ -144,6 +151,7 @@ previewModalCloseBtn.addEventListener("click", () => {
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
 
+// Render initial cards
 initialCards.forEach((item) => {
   const cardEl = getCardElement(item);
   cardsList.append(cardEl);
