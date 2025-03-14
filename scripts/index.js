@@ -97,6 +97,20 @@ function openModal(modal) {
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
+  // Reset the form fields inside the modal
+  const form = modal.querySelector(".modal__form");
+  if (form) {
+    form.reset();
+
+    // Remove error messages and input error styles
+    const errorElements = form.querySelectorAll(".modal__error");
+    errorElements.forEach((errorEl) => (errorEl.textContent = ""));
+
+    const inputs = form.querySelectorAll(".modal__input");
+    inputs.forEach((input) =>
+      input.classList.remove("modal__input_type_error")
+    );
+  }
 }
 
 function handleEditFormSubmit(evt) {
@@ -123,7 +137,7 @@ function handleAddCardSubmit(evt) {
   cardsList.prepend(cardEl);
 
   closeModal(cardModal);
-  cardForm.reset();
+  cardForm.reset(); // Reset the form on save
 }
 
 profileEditBtn.addEventListener("click", () => {
@@ -134,6 +148,7 @@ profileEditBtn.addEventListener("click", () => {
 
 editModalCloseBtn.addEventListener("click", () => {
   closeModal(editModal);
+  editFormElement.reset(); // Reset the edit form when closing
 });
 
 cardModalBtn.addEventListener("click", () => {
@@ -142,6 +157,7 @@ cardModalBtn.addEventListener("click", () => {
 
 cardModalCloseBtn.addEventListener("click", () => {
   closeModal(cardModal);
+  cardForm.reset(); // Reset the card form when closing
 });
 
 previewModalCloseBtn.addEventListener("click", () => {
