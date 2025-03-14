@@ -172,3 +172,49 @@ initialCards.forEach((item) => {
   const cardEl = getCardElement(item);
   cardsList.append(cardEl);
 });
+
+function closeModalByEscape(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal_opened");
+    if (openedModal) {
+      closeModal(openedModal);
+    }
+  }
+}
+
+function closeModalByOverlayClick(evt) {
+  if (evt.target.classList.contains("modal")) {
+    closeModal(evt.target);
+  }
+}
+
+// Modify the openModal function to add event listeners
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+  // Add event listeners when the modal opens
+  document.addEventListener("keydown", closeModalByEscape);
+  modal.addEventListener("mousedown", closeModalByOverlayClick);
+}
+
+// Modify the closeModal function to remove event listeners
+function closeModal(modal) {
+  modal.classList.remove("modal_opened");
+  // Remove event listeners when the modal closes
+  document.removeEventListener("keydown", closeModalByEscape);
+  modal.removeEventListener("mousedown", closeModalByOverlayClick);
+
+  // Reset the form fields inside the modal
+  const form = modal.querySelector(".modal__form");
+  if (form) {
+    form.reset();
+
+    // Remove error messages and input error styles
+    const errorElements = form.querySelectorAll(".modal__error");
+    errorElements.forEach((errorEl) => (errorEl.textContent = ""));
+
+    const inputs = form.querySelectorAll(".modal__input");
+    inputs.forEach((input) =>
+      input.classList.remove("modal__input_type_error")
+    );
+  }
+}
