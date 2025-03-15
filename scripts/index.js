@@ -127,8 +127,8 @@ function handleAddCardSubmit(evt) {
   closeModal(cardModal);
   cardForm.reset();
   toggleButtonState(
-    Array.from(cardForm.querySelectorAll(settings.inputSelector)),
-    cardForm.querySelector(settings.submitButtonSelector),
+    [cardCaptionInput, cardLinkInput], // Use pre-selected inputs
+    evt.submitter, // Use the submit button that triggered the event
     settings
   );
 }
