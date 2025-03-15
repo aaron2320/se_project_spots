@@ -9,8 +9,7 @@
     <meta name="author" content="Aaron Brown" />
     <meta
       name="keywords"
-      content="Spots is an application where user can view
-    photos with descriptions, and they can interact with the like buttons and is responsive for cell phone"
+      content="Spots is an application where user can view photos with descriptions, and they can interact with the like buttons and is responsive for cell phone"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="favicon.ico" />
@@ -49,7 +48,8 @@
               src="./images/Plusbutton.svg"
               alt="plus icon"
               class="profile__add-icon"
-            />&nbsp;New Post
+            />
+            New Post
           </button>
         </section>
         <section class="cards page__section">
@@ -57,7 +57,10 @@
             <template id="card-template">
               <li class="card">
                 <img class="card__image" src="" alt="Card image" />
-                <button class="card__delete-btn"></button>
+                <button
+                  class="card__delete-btn"
+                  aria-label="Delete card"
+                ></button>
                 <div class="card__footer">
                   <h2 class="card__title"></h2>
                   <button
@@ -80,7 +83,6 @@
           </button>
           <h2 class="modal__title">Edit profile</h2>
           <form class="modal__form" id="edit-profile-form" novalidate>
-          <form name="edit profile" class="modal__form">
             <label for="profile-name-input" class="modal__label">
               Name
               <input
@@ -121,7 +123,6 @@
           </button>
           <h2 class="modal__title">New Post</h2>
           <form class="modal__form" id="card-form" novalidate>
-          <form name="link" class="modal__form">
             <label for="add-card-link-input" class="modal__label">
               Image link
               <input

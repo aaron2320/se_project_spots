@@ -38,18 +38,18 @@ const editModal = document.querySelector("#edit-modal");
 const cardModal = document.querySelector("#add-card-modal");
 const previewModal = document.querySelector("#preview-modal");
 
-const editFormElement = editModal.querySelector(".modal__form");
-
+// Optimized form selection using document.forms
+const editFormElement = document.forms["edit-profile-form"];
 const editModalCloseBtn = editModal.querySelector(".modal__close-btn");
 const editModalNameInput = editModal.querySelector("#profile-name-input");
 const editModalDescriptionInput = editModal.querySelector(
   "#profile-description-input"
 );
 
+// Optimized form selection using document.forms
+const cardForm = document.forms["card-form"];
 const cardModalCloseBtn = cardModal.querySelector(".modal__close-btn");
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
-
-const cardForm = cardModal.querySelector(".modal__form");
 const cardLinkInput = cardModal.querySelector("#add-card-link-input");
 const cardCaptionInput = cardModal.querySelector("#card-caption-input");
 
@@ -63,7 +63,6 @@ function getCardElement(data) {
   const cardElement = cardTemplate.content
     .querySelector(".card")
     .cloneNode(true);
-
   const cardNameEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardLikeBtn = cardElement.querySelector(".card__like-btn");
@@ -73,14 +72,10 @@ function getCardElement(data) {
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
 
-  cardDeleteBtn.addEventListener("click", () => {
-    cardElement.remove();
-  });
-
-  cardLikeBtn.addEventListener("click", () => {
-    cardLikeBtn.classList.toggle("card__like-btn_liked");
-  });
-
+  cardDeleteBtn.addEventListener("click", () => cardElement.remove());
+  cardLikeBtn.addEventListener("click", () =>
+    cardLikeBtn.classList.toggle("card__like-btn_liked")
+  );
   cardImageEl.addEventListener("click", () => {
     previewModalImage.src = data.link;
     previewModalImage.alt = data.name;
@@ -91,26 +86,21 @@ function getCardElement(data) {
   return cardElement;
 }
 
+function renderCard(item, method = "prepend") {
+  const cardElement = getCardElement(item);
+  cardsList[method](cardElement);
+}
+
 function openModal(modal) {
   modal.classList.add("modal_opened");
+  document.addEventListener("keydown", closeModalByEscape);
+  modal.addEventListener("mousedown", closeModalByOverlayClick);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
-  // Reset the form fields inside the modal
-  const form = modal.querySelector(".modal__form");
-  if (form) {
-    form.reset();
-
-    // Remove error messages and input error styles
-    const errorElements = form.querySelectorAll(".modal__error");
-    errorElements.forEach((errorEl) => (errorEl.textContent = ""));
-
-    const inputs = form.querySelectorAll(".modal__input");
-    inputs.forEach((input) =>
-      input.classList.remove("modal__input_type_error")
-    );
-  }
+  document.removeEventListener("keydown", closeModalByEscape);
+  modal.removeEventListener("mousedown", closeModalByOverlayClick);
 }
 
 function handleEditFormSubmit(evt) {
@@ -133,88 +123,42 @@ function handleAddCardSubmit(evt) {
     return;
   }
 
-  const cardEl = getCardElement(inputValues);
-  cardsList.prepend(cardEl);
-
+  renderCard(inputValues);
   closeModal(cardModal);
-  cardForm.reset(); // Reset the form on save
+  cardForm.reset();
+  toggleButtonState(
+    Array.from(cardForm.querySelectorAll(settings.inputSelector)),
+    cardForm.querySelector(settings.submitButtonSelector),
+    settings
+  );
 }
 
 profileEditBtn.addEventListener("click", () => {
   editModalNameInput.value = profileName.textContent;
   editModalDescriptionInput.value = profileDescription.textContent;
+  resetValidation(editFormElement, settings);
   openModal(editModal);
 });
 
-editModalCloseBtn.addEventListener("click", () => {
-  closeModal(editModal);
-  editFormElement.reset(); // Reset the edit form when closing
-});
-
-cardModalBtn.addEventListener("click", () => {
-  openModal(cardModal);
-});
-
-cardModalCloseBtn.addEventListener("click", () => {
-  closeModal(cardModal);
-  cardForm.reset(); // Reset the card form when closing
-});
-
-previewModalCloseBtn.addEventListener("click", () => {
-  closeModal(previewModal);
-});
+editModalCloseBtn.addEventListener("click", () => closeModal(editModal));
+cardModalBtn.addEventListener("click", () => openModal(cardModal));
+cardModalCloseBtn.addEventListener("click", () => closeModal(cardModal));
+previewModalCloseBtn.addEventListener("click", () => closeModal(previewModal));
 
 editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
 
-// Render initial cards
-initialCards.forEach((item) => {
-  const cardEl = getCardElement(item);
-  cardsList.append(cardEl);
-});
+initialCards.forEach((item) => renderCard(item, "append"));
 
 function closeModalByEscape(evt) {
   if (evt.key === "Escape") {
     const openedModal = document.querySelector(".modal_opened");
-    if (openedModal) {
-      closeModal(openedModal);
-    }
+    if (openedModal) closeModal(openedModal);
   }
 }
 
 function closeModalByOverlayClick(evt) {
   if (evt.target.classList.contains("modal")) {
     closeModal(evt.target);
-  }
-}
-
-// Modify the openModal function to add event listeners
-function openModal(modal) {
-  modal.classList.add("modal_opened");
-  // Add event listeners when the modal opens
-  document.addEventListener("keydown", closeModalByEscape);
-  modal.addEventListener("mousedown", closeModalByOverlayClick);
-}
-
-// Modify the closeModal function to remove event listeners
-function closeModal(modal) {
-  modal.classList.remove("modal_opened");
-  // Remove event listeners when the modal closes
-  document.removeEventListener("keydown", closeModalByEscape);
-  modal.removeEventListener("mousedown", closeModalByOverlayClick);
-
-  // Reset the form fields inside the modal
-  const form = modal.querySelector(".modal__form");
-  if (form) {
-    form.reset();
-
-    // Remove error messages and input error styles
-    const errorElements = form.querySelectorAll(".modal__error");
-    errorElements.forEach((errorEl) => (errorEl.textContent = ""));
-
-    const inputs = form.querySelectorAll(".modal__input");
-    inputs.forEach((input) =>
-      input.classList.remove("modal__input_type_error")
-    );
   }
 }
