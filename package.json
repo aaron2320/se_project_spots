@@ -1,0 +1,19 @@
+{
+  "name": "tripleten",
+  "version": "1.0.0",
+  "description": "Educational platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaron2320/se_project_spots.git"
+  },
+  "author": "aaron",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aaron2320/se_project_spots/issues"
+  },
+  "homepage": "https://github.com/aaron2320/se_project_spots#readme"
+}
