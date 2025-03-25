@@ -1,5 +1,3 @@
-import { enableValidation, validationConfig } from "./validate.js";
-
 const initialCards = [
   {
     name: "Val Thorens",
@@ -164,5 +162,3 @@ function closeModalByOverlayClick(evt) {
     closeModal(evt.target);
   }
 }
-
-enableValidation(validationConfig);
