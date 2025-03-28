@@ -69,4 +69,5 @@ const enableValidation = (config) => {
   formList.forEach((formEl) => setEventListeners(formEl, config));
 };
 
-enableValidation(settings);
+// Export the necessary functions and settings
+export { enableValidation, settings, resetValidation, toggleButtonState }; // Added toggleButtonState
