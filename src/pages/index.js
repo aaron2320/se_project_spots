@@ -1,3 +1,12 @@
+import "./index.css";
+// Import from validation.js
+import {
+  enableValidation,
+  settings,
+  resetValidation,
+  toggleButtonState, // Added this
+} from "../scripts/validation.js";
+
 const initialCards = [
   {
     name: "Val Thorens",
@@ -126,11 +135,7 @@ function handleAddCardSubmit(evt) {
   renderCard(inputValues);
   closeModal(cardModal);
   cardForm.reset();
-  toggleButtonState(
-    [cardCaptionInput, cardLinkInput], // Use pre-selected inputs
-    evt.submitter, // Use the submit button that triggered the event
-    settings
-  );
+  toggleButtonState([cardCaptionInput, cardLinkInput], evt.submitter, settings);
 }
 
 profileEditBtn.addEventListener("click", () => {
@@ -162,3 +167,6 @@ function closeModalByOverlayClick(evt) {
     closeModal(evt.target);
   }
 }
+
+// Call enableValidation with settings
+enableValidation(settings);

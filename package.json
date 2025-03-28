@@ -1,0 +1,42 @@
+{
+  "name": "se_project_spots",
+  "version": "1.0.0",
+  "description": "Spots web page shows a user profile and a photo gallery. Users can view photos with descriptions, and they can respond with \"like\" buttons for each photo. The web page also includes functionality to edit the user's profile and add new posts. I have posted my site on github: https://aaron2320.github.io/se_project_spots/",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve --mode development",
+    "predeploy": "npm run build",
+   "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaron2320/se_project_spots.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aaron2320/se_project_spots/issues"
+  },
+  "homepage": "https://github.com/aaron2320/se_project_spots#readme",
+  "dependencies": {
+    "jquery": "3.7.1"
+  },
+  "devDependencies": {
+    "@babel/core": "7.26.10",
+    "@babel/preset-env": "7.26.9",
+    "babel-loader": "10.0.0",
+    "clean-webpack-plugin": "4.0.0",
+    "css-loader": "7.1.2",
+    "cssnano": "7.0.6",
+    "gh-pages": "6.3.0",
+    "html-webpack-plugin": "5.6.3",
+    "mini-css-extract-plugin": "2.9.2",
+    "postcss": "8.5.3",
+    "postcss-loader": "8.1.1",
+    "postcss-preset-env": "10.1.5",
+    "webpack": "5.98.0",
+    "webpack-cli": "6.0.1",
+    "webpack-dev-server": "5.2.0"
+  }
+}
