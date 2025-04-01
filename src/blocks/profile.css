@@ -4,11 +4,56 @@
   padding: 34px 0 20px;
 }
 
+.profile__avatar-container {
+  position: relative;
+  margin-right: 20px;
+}
+
 .profile__avatar {
   width: 190px;
   height: 190px;
-  margin-right: 20px;
   border-radius: 8px;
+  object-fit: cover;
+  transition: filter 0.3s ease; /* Smooth transition for darkening effect */
+}
+
+/* Darken the avatar on hover (desktop) or when active (mobile) */
+.profile__avatar-container:hover .profile__avatar,
+.profile__avatar-container--active .profile__avatar {
+  filter: brightness(0.5); /* Darken the avatar image */
+}
+
+.profile__edit-avatar-link {
+  position: absolute;
+  top: 0; /* Align to the top of the avatar */
+  left: 0; /* Align to the left of the avatar */
+  width: 190px; /* Match the avatar width */
+  height: 190px; /* Match the avatar height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 8px; /* Match the avatar's border radius */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease; /* Smooth fade-in effect */
+}
+
+/* Show the overlay on hover (desktop) or when active (mobile) */
+.profile__avatar-container:hover .profile__edit-avatar-link,
+.profile__avatar-container--active .profile__edit-avatar-link {
+  opacity: 1; /* Show the overlay */
+}
+
+.profile__edit-avatar-link:hover {
+  opacity: 1;
+}
+
+.profile__edit-avatar-icon {
+  display: block;
+  width: 190px; /* Match the avatar width */
+  height: 190px; /* Match the avatar height */
+  opacity: 0.7; /* Make the SVG semi-transparent */
+  object-fit: contain; /* Ensure the SVG scales properly without distortion */
 }
 
 .profile__column {
@@ -100,6 +145,11 @@
   cursor: pointer;
 }
 
+.profile__edit-icon {
+  width: 16px;
+  height: 16px;
+}
+
 @media screen and (max-width: 627px) {
   .page__section {
     padding: 0;
@@ -110,10 +160,21 @@
     align-items: center;
     padding-top: 20px;
   }
+  .profile__avatar-container {
+    margin: 0 0 12px;
+  }
   .profile__avatar {
     width: 80px;
     height: 80px;
-    margin: 0 0 12px;
+    border-radius: 8px;
+  }
+  .profile__edit-avatar-link {
+    width: 80px; /* Match the avatar width on mobile */
+    height: 80px; /* Match the avatar height on mobile */
+  }
+  .profile__edit-avatar-icon {
+    width: 80px; /* Match the avatar width on mobile */
+    height: 80px; /* Match the avatar height on mobile */
   }
   .profile__column {
     text-align: center;
@@ -130,6 +191,7 @@
   .profile__edit-btn {
     margin: 32px auto 20px;
     border-radius: 90px;
+    padding: 10px 20px;
   }
   .profile__add-btn {
     width: 288px;
