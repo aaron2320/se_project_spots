@@ -1,4 +1,4 @@
-import "./index.css"; // Import index.css from the same folder (src/pages/)
+import "./index.css";
 import {
   enableValidation,
   settings,
@@ -14,44 +14,6 @@ const api = new Api({
     "Content-Type": "application/json",
   },
 });
-
-// Default user data and initial cards
-const defaultUser = {
-  name: "Bessie Coleman",
-  about: "Civil Aviator",
-  avatar: require("../images/avatar.jpg"), // Use the default avatar from your HTML
-};
-
-const initialCards = [
-  {
-    name: "Val Thorens",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-  {
-    name: "Restaurant terrace",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/2-photo-by-ceiline-from-pexels.jpg",
-  },
-  {
-    name: "An outdoor cafe",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/3-photo-by-tubanur-dogan-from-pexels.jpg",
-  },
-  {
-    name: "A very long bridge, over the forest and through the trees",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/4-photo-by-maurice-laschet-from-pexels.jpg",
-  },
-  {
-    name: "Tunnel with morning light",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/5-photo-by-van-anh-nguyen-from-pexels.jpg",
-  },
-  {
-    name: "Mountain house",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
-  },
-  {
-    name: "Golden Gate bridge",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg",
-  },
-];
 
 // DOM Elements
 const profileEditBtn = document.querySelector(".profile__edit-btn");
@@ -98,20 +60,28 @@ const previewModalCaption = document.querySelector(".modal__caption");
 // Variables for delete functionality
 let selectedCard = null;
 let selectedCardId = null;
+let userId = null; // Store the current user's ID
 
-// Load default data on page load (ignoring server data)
-function loadDefaultData() {
-  profileName.textContent = defaultUser.name;
-  profileDescription.textContent = defaultUser.about;
-  profileAvatar.src = defaultUser.avatar;
-  initialCards.forEach((item) => renderCard(item, "append"));
+// Load initial data from API
+function loadInitialData() {
+  api
+    .getAppInfo()
+    .then(({ user, cards }) => {
+      console.log("API User Data:", user);
+      console.log("API Cards Data:", cards);
+      userId = user._id; // Store the current user's ID
+      profileName.textContent = user.name;
+      profileDescription.textContent = user.about;
+      profileAvatar.src = user.avatar;
+      cardsList.innerHTML = ""; // Clear existing cards
+      cards.forEach((item) => renderCard(item, "append"));
+    })
+    .catch((err) => console.error("Failed to load initial data:", err));
 }
-
-// Load the default data immediately on page load
-loadDefaultData();
 
 // Card creation function
 function getCardElement(data) {
+  console.log("Creating card with data:", data); // Debug: Log card data
   const cardElement = cardTemplate.content
     .querySelector(".card")
     .cloneNode(true);
@@ -123,13 +93,20 @@ function getCardElement(data) {
   cardNameEl.textContent = data.name;
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
-  if (data.isLiked) cardLikeBtn.classList.add("card__like-btn_liked");
+
+  // Check if the current user has liked the card
+  const isLiked = data.likes && data.likes.some((like) => like._id === userId);
+  console.log(`Card ${data._id} isLiked: ${isLiked}`); // Debug: Log initial like state
+  if (isLiked) {
+    cardLikeBtn.classList.add("card__like-btn_liked");
+  }
 
   cardDeleteBtn.addEventListener("click", () =>
     handleDeleteCard(cardElement, data)
   );
-  cardLikeBtn.addEventListener("click", () =>
-    handleLikeClick(cardLikeBtn, data._id)
+  cardLikeBtn.addEventListener(
+    "click",
+    handleLikeClick.bind(null, cardLikeBtn, data)
   );
   cardImageEl.addEventListener("click", () => {
     previewModalImage.src = data.link;
@@ -161,9 +138,12 @@ function closeModal(modal) {
   avatarContainer.classList.remove("profile__avatar-container--active");
 }
 
-// Form handlers
+// Form handlers with "Saving..." state
 function handleEditFormSubmit(evt) {
   evt.preventDefault();
+  const submitBtn = evt.submitter;
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = "Saving...";
   const name = editModalNameInput.value;
   const about = editModalDescriptionInput.value;
   api
@@ -173,11 +153,15 @@ function handleEditFormSubmit(evt) {
       profileDescription.textContent = user.about;
       closeModal(editModal);
     })
-    .catch((err) => console.error("Failed to update profile:", err));
+    .catch((err) => console.error("Failed to update profile:", err))
+    .finally(() => (submitBtn.textContent = originalText));
 }
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
+  const submitBtn = evt.submitter;
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = "Saving...";
   const name = cardCaptionInput.value;
   const link = cardLinkInput.value;
   api
@@ -186,17 +170,17 @@ function handleAddCardSubmit(evt) {
       renderCard(card);
       closeModal(cardModal);
       cardForm.reset();
-      toggleButtonState(
-        [cardCaptionInput, cardLinkInput],
-        evt.submitter,
-        settings
-      );
+      toggleButtonState([cardCaptionInput, cardLinkInput], submitBtn, settings);
     })
-    .catch((err) => console.error("Failed to add card:", err));
+    .catch((err) => console.error("Failed to add card:", err))
+    .finally(() => (submitBtn.textContent = originalText));
 }
 
 function handleAvatarFormSubmit(evt) {
   evt.preventDefault();
+  const submitBtn = evt.submitter;
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = "Saving...";
   const avatarUrl = avatarUrlInput.value;
   api
     .updateAvatar(avatarUrl)
@@ -204,7 +188,8 @@ function handleAvatarFormSubmit(evt) {
       profileAvatar.src = user.avatar;
       closeModal(avatarModal);
     })
-    .catch((err) => console.error("Failed to update avatar:", err));
+    .catch((err) => console.error("Failed to update avatar:", err))
+    .finally(() => (submitBtn.textContent = originalText));
 }
 
 function handleDeleteCard(cardElement, data) {
@@ -215,6 +200,9 @@ function handleDeleteCard(cardElement, data) {
 
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
+  const submitBtn = evt.submitter;
+  const originalText = submitBtn.textContent;
+  submitBtn.textContent = "Saving...";
   api
     .removeCard(selectedCardId)
     .then(() => {
@@ -223,15 +211,21 @@ function handleDeleteSubmit(evt) {
       selectedCard = null;
       selectedCardId = null;
     })
-    .catch((err) => console.error("Failed to delete card:", err));
+    .catch((err) => console.error("Failed to delete card:", err))
+    .finally(() => (submitBtn.textContent = originalText));
 }
 
-function handleLikeClick(likeBtn, cardId) {
+function handleLikeClick(likeBtn, data) {
   const isLiked = likeBtn.classList.contains("card__like-btn_liked");
-  const method = isLiked ? api.removeLike : api.addLike;
-  method(cardId)
+  console.log(`Like button clicked, isLiked: ${isLiked}, Card ID: ${data._id}`); // Debug
+  const method = isLiked ? api.removeLike.bind(api) : api.addLike.bind(api);
+  method(data._id)
     .then((updatedCard) => {
-      likeBtn.classList.toggle("card__like-btn_liked", updatedCard.isLiked);
+      console.log("Like update response:", updatedCard); // Debug
+      const newIsLiked =
+        updatedCard.likes &&
+        updatedCard.likes.some((like) => like._id === userId);
+      likeBtn.classList.toggle("card__like-btn_liked", newIsLiked);
     })
     .catch((err) => console.error("Failed to update like:", err));
 }
@@ -287,4 +281,6 @@ function closeModalByOverlayClick(evt) {
   }
 }
 
+// Initialize
+loadInitialData();
 enableValidation(settings);
