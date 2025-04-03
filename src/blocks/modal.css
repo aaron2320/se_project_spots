@@ -161,7 +161,7 @@
   height: 172px; /* Fixed height from Figma */
   max-width: none; /* Override default max-width */
   padding: 32px 20px 32px 20px; /* Padding from Figma */
-  background: #fcf5e5; /* Background color from Figma */
+  background: #fff; /* Background color from Figma */
   border-radius: 8px;
   display: flex;
   flex-direction: column;

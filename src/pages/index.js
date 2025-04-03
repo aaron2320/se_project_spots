@@ -95,7 +95,10 @@ function getCardElement(data) {
   cardImageEl.alt = data.name;
 
   // Check if the current user has liked the card
-  const isLiked = data.likes && data.likes.some((like) => like._id === userId);
+  // const isLiked = data.likes && data.likes.some((like) => like._id === userId);
+  // previous line expects api response called "data.likes" however we actually receive
+  // data.isLiked = true or false
+  const isLiked = data.isLiked;
   console.log(`Card ${data._id} isLiked: ${isLiked}`); // Debug: Log initial like state
   if (isLiked) {
     cardLikeBtn.classList.add("card__like-btn_liked");
@@ -128,14 +131,12 @@ function openModal(modal) {
   modal.classList.add("modal_opened");
   document.addEventListener("keydown", closeModalByEscape);
   modal.addEventListener("mousedown", closeModalByOverlayClick);
-  avatarContainer.classList.remove("profile__avatar-container--active");
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", closeModalByEscape);
   modal.removeEventListener("mousedown", closeModalByOverlayClick);
-  avatarContainer.classList.remove("profile__avatar-container--active");
 }
 
 // Form handlers with "Saving..." state
@@ -257,16 +258,6 @@ editFormElement.addEventListener("submit", handleEditFormSubmit);
 cardForm.addEventListener("submit", handleAddCardSubmit);
 avatarForm.addEventListener("submit", handleAvatarFormSubmit);
 deleteForm.addEventListener("submit", handleDeleteSubmit);
-
-// Touch events for avatar
-avatarContainer.addEventListener("touchstart", (evt) => {
-  avatarContainer.classList.toggle("profile__avatar-container--active");
-});
-document.addEventListener("touchstart", (evt) => {
-  if (!avatarContainer.contains(evt.target)) {
-    avatarContainer.classList.remove("profile__avatar-container--active");
-  }
-});
 
 function closeModalByEscape(evt) {
   if (evt.key === "Escape") {
