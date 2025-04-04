@@ -96,7 +96,7 @@ function getCardElement(data) {
 
   // Check if the current user has liked the card
   // const isLiked = data.likes && data.likes.some((like) => like._id === userId);
-  // previous line expects api response called "data.likes" however we actually receive
+  // previous line expects api response called "data.likes" however we actually received
   // data.isLiked = true or false
   const isLiked = data.isLiked;
   console.log(`Card ${data._id} isLiked: ${isLiked}`); // Debug: Log initial like state
