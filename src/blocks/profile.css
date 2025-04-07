@@ -1,0 +1,208 @@
+.profile {
+  display: flex;
+  border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
+  padding: 34px 0 20px;
+}
+
+.profile__avatar-container {
+  position: relative;
+  margin-right: 20px;
+}
+
+.profile__avatar {
+  width: 190px;
+  height: 190px;
+  border-radius: 8px;
+  object-fit: cover;
+  transition: filter 0.3s ease; /* Smooth transition for darkening effect */
+}
+
+/* Darken the avatar on hover (desktop) or when active (mobile) */
+.profile__avatar-container:hover .profile__avatar,
+.profile__avatar-container--active .profile__avatar {
+  filter: brightness(0.5); /* Darken the avatar image */
+}
+
+.profile__edit-avatar-link {
+  position: absolute;
+  top: 0; /* Align to the top of the avatar */
+  left: 0; /* Align to the left of the avatar */
+  width: 190px; /* Match the avatar width */
+  height: 190px; /* Match the avatar height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 8px; /* Match the avatar's border radius */
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.3s ease; /* Smooth fade-in effect */
+}
+
+/* Show the overlay on hover (desktop) or when active (mobile) */
+.profile__avatar-container:hover .profile__edit-avatar-link,
+.profile__avatar-container--active .profile__edit-avatar-link {
+  opacity: 1; /* Show the overlay */
+}
+
+.profile__edit-avatar-link:hover {
+  opacity: 1;
+}
+
+.profile__edit-avatar-icon {
+  display: block;
+  width: 190px; /* Match the avatar width */
+  height: 190px; /* Match the avatar height */
+  opacity: 0.7; /* Make the SVG semi-transparent */
+  object-fit: contain; /* Ensure the SVG scales properly without distortion */
+}
+
+.profile__column {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile__add-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 32px;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: #212121;
+  color: rgba(252, 245, 229, 1);
+  border: none;
+  border-radius: 8px;
+  margin: 138px 0 0 auto;
+  width: 170px;
+  height: 50px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.profile__add-btn:hover {
+  opacity: 0.8;
+}
+
+.profile__add-icon {
+  width: 12px;
+  height: 12px;
+}
+
+.profile__name {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1;
+  color: rgba(33, 33, 33, 1);
+  max-width: 420px;
+  margin: 0 0 12px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* For older Webkit browsers */
+  line-clamp: 3; /* Standard property for modern browsers */
+  -webkit-box-orient: vertical;
+}
+
+.profile__description {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  color: rgba(33, 33, 33, 0.7);
+  margin: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* For older Webkit browsers */
+  line-clamp: 3; /* Standard property for modern browsers */
+  -webkit-box-orient: vertical;
+  max-width: 420px;
+}
+
+.profile__edit-btn {
+  display: flex;
+  justify-content: left;
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1;
+  background-color: rgba(252, 245, 229, 1);
+  color: rgba(33, 33, 33, 1);
+  border: none;
+  gap: 8px;
+  margin-top: auto;
+  padding: 0;
+  opacity: 0.7;
+}
+
+.profile__edit-btn:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.profile__edit-icon {
+  width: 16px;
+  height: 16px;
+}
+
+@media screen and (max-width: 627px) {
+  .page__section {
+    padding: 0;
+  }
+  .profile {
+    flex-direction: column;
+    max-width: 288px;
+    align-items: center;
+    padding-top: 20px;
+  }
+  .profile__avatar-container {
+    margin: 0 0 12px;
+  }
+  .profile__avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+  }
+  .profile__edit-avatar-link {
+    width: 80px; /* Match the avatar width on mobile */
+    height: 80px; /* Match the avatar height on mobile */
+  }
+  .profile__edit-avatar-icon {
+    width: 80px; /* Match the avatar width on mobile */
+    height: 80px; /* Match the avatar height on mobile */
+  }
+  .profile__column {
+    text-align: center;
+  }
+  .profile__name {
+    font-size: 20px;
+    margin: 0 0 6px;
+    max-width: 288px;
+  }
+  .profile__description {
+    max-width: 288px;
+    margin: auto;
+  }
+  .profile__edit-btn {
+    margin: 32px auto 20px;
+    border-radius: 90px;
+    padding: 10px 20px;
+  }
+  .profile__add-btn {
+    width: 288px;
+    height: 52px;
+    margin: 0 0 20px;
+    padding: 10px 32px;
+    white-space: nowrap;
+    gap: 8px;
+  }
+  .profile__add-icon {
+    width: 12px;
+    height: 12px;
+  }
+}
